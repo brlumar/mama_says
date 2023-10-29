@@ -58,6 +58,36 @@ const cardData = [
             },
 
         ]
+    },
+    {
+        phrase: 'The best gift i got at my baby shower was my ______.',
+        answers: [
+            {
+                blank: 'c___',
+                answer: 'crib'
+            },
+            {
+                blank: 'd_____ b__',
+                answer: 'diaper bag'
+            },
+            {
+                blank: 'p_____ f____',
+                answer: 'picture frame'
+            }, {
+                blank: 'g___ c____',
+                answer: 'gift card'
+            }, {
+                blank: 't___',
+                answer: 'toys'
+            }, {
+                blank: 't_______ r___',
+                answer: 'teething ring'
+            }, {
+                blank: 'p________ b____',
+                answer: 'parenting books'
+            },
+
+        ]
     }
 ]
 
