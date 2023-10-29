@@ -1,8 +1,24 @@
+const question = document.getElementById('question');//variable that give access to the question container in the DOM
+const answer1 = document.getElementById('answer1');//variable that gives access to the first answer in the DOM
+const answer2 = document.getElementById('answer2');//variable that gives access to the first answer in the DOM
+const answer3 = document.getElementById('answer3');//variable that gives access to the first answer in the DOM
+const answer4 = document.getElementById('answer4');//variable that gives access to the first answer in the DOM
+const answer5 = document.getElementById('answer5');//variable that gives access to the first answer in the DOM
+const answer6 = document.getElementById('answer6');//variable that gives access to the first answer in the DOM
+const answer7 = document.getElementById('answer7');//variable that gives access to the first answer in the DOM
+
+
+
 const startBtn = document.getElementById('start-btn'); //points to the button that starts the game
 const timeElement = document.getElementById('time'); //variable that gives access to the clock in the DOM 
+
 let time = 0; //seconds allowed per turn
 let timerInterval; //variable for the clock interval
 let whoseTurn = 1;
+
+
+let currentCardIndex = Math.floor(Math.random() * cardData.length); //index that indicates which card is currently being displayed
+
 
 
 
@@ -11,7 +27,8 @@ function startTimer() {
 
     if (whoseTurn == 1) {
         if (time == 0) {
-
+            clearCard();
+            updateQuestion();
             time = 30; //resets the timer to 60 seconds
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
             // showCard();
@@ -31,7 +48,7 @@ function startTimer() {
             console.log("It's team ", whoseTurn, " turn.");
             print();
         } else {
-            playTimerRunning();
+            // playTimerRunning();
         }
 
 
@@ -54,5 +71,33 @@ function updateTimer() {
         time--;
     }
 }
+
+function updateQuestion() {
+
+const currentQuestion = cardData[currentCardIndex];
+question.innerHTML = currentQuestion.phrase;
+answer1.innerHTML = currentQuestion.answers[0].blank;
+answer2.innerHTML = currentQuestion.answers[1].blank;
+answer3.innerHTML = currentQuestion.answers[2].blank;
+answer4.innerHTML = currentQuestion.answers[3].blank;
+answer5.innerHTML = currentQuestion.answers[4].blank;
+answer6.innerHTML = currentQuestion.answers[5].blank;
+answer7.innerHTML = currentQuestion.answers[6].blank;
+
+
+}
+
+function clearCard() {
+    question.innerHTML = '';
+    answer1.innerHTML = '';
+    answer2.innerHTML = '';
+    answer3.innerHTML = '';
+    answer4.innerHTML = '';
+    answer5.innerHTML = '';
+    answer6.innerHTML = '';
+    answer7.innerHTML = '';
+
+}
+
 
 startBtn.addEventListener('click', startTimer);
