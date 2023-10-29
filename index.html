@@ -1,11 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Mama Says</title>
 </head>
+
 <body>
-    
+
+    <nav class="navbar navbar-expand-md">
+
+        <div class="container-xxl">
+            <a href="#play-area" class="navbar-brand">
+                <span class="fw-bold text-secondary">
+                    Mama Says
+                </span>
+            </a>
+            <!-- toggle button for mobile nav -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- nave bar links -->
+            <div class="collape navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" id="howToBtn" href="#howTo">How To Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="wordListBtn" href="#wordlistContainer">Word List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">High Scores</a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="#start">start</a>
+                    </li>
+                    <li class="nav-item ms-2  d-md-inline">
+                        <a class="btn btn-secondary" id="start-btn" href="#start">Start</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="playarea">
+
+
+
+
+
+        <div class="card text-bg-dark">
+            <img src="images/Wooden-Board-Toy-Bear-Backdrop-for-Photography-Photo-Background-Baby-Shower-Decorations-Child-s-Birthday-Party.jpg"
+                class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <div class="card-title  text-bg-light text-center p-3 card-title">Mama's always think their babies have
+                    the cutest
+                    ______.</div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 fs-1">b____</div>
+                        <div class="col-md-4 ms-auto">
+                            <div class="col-sm-8 fs-1">e___</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 ms-auto fs-1">d____</div>
+                        <div class="col-md-6 ms-auto fs-1">c______</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 ms-auto fs-1"> n____</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ms-auto fs-1">
+                            n______</div>
+
+                        <div class="col-md-6 ms-auto fs-1">
+                            f___
+                        </div>
+
+
+                    </div>
+                </div>
+                <button class="btn btn-light" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Scores</button>
+
+                <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+                    aria-labelledby="offcanvasBottomLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body small">
+                        ...
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>

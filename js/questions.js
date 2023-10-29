@@ -28,6 +28,36 @@ const cardData = [
             },
 
         ]
+    },
+    {
+        phrase: 'Mothers alway think their babies have the cutest ______.',
+        answers: [
+            {
+                blank: 'b_____',
+                answer: 'bottom'
+            },
+            {
+                blank: 'e___',
+                answer: 'eyes'
+            },
+            {
+                blank: 'd____',
+                answer: 'daddy'
+            }, {
+                blank: 'c_______',
+                answer: 'clothes'
+            }, {
+                blank: 'n___',
+                answer: 'noses'
+            }, {
+                blank: 'n_____',
+                answer: 'nursery'
+            }, {
+                blank: 'f___',
+                answer: 'face'
+            },
+
+        ]
     }
 ]
 
