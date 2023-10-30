@@ -16,8 +16,11 @@ let time = 0; //seconds allowed per turn
 let timerInterval; //variable for the clock interval
 let whoseTurn = 1;
 
+let index = -1;
 
-let currentCardIndex = Math.floor(Math.random() * cardData.length); //index that indicates which card is currently being displayed
+// let currentCardIndex = Math.floor(Math.random() * cardData.length); //index that indicates which card is currently being displayed
+let currentQuestion = cardData[index];
+let correctAnswers = 0;
 
 
 
@@ -27,6 +30,8 @@ function startTimer() {
 
     if (whoseTurn == 1) {
         if (time == 0) {
+            index++;
+            currentQuestion = cardData[index];
             clearCard();
             updateQuestion();
             time = 30; //resets the timer to 60 seconds
@@ -39,7 +44,10 @@ function startTimer() {
         }
     } else {
         if (time == 0) {
-
+            index++;
+            currentQuestion = cardData[index];
+            clearCard();
+            updateQuestion();
             time = 30; //resets the time to 60 seconds 
             clearInterval(timerInterval); //temperarily keeps the timer interval from doubling up. disabling the button while time is running with fix the issue permantantly
             // showCard();
@@ -58,9 +66,10 @@ function startTimer() {
 //fuction that updates the time and subtract and extra second afer wrong answer
 function updateTimer() {
     timeElement.innerText = time;
-    if (time <= 0) {
+    if (time <= 0 || correctAnswers == 7) {
         clearInterval(timerInterval);
-
+        correctAnswers = 0;
+        time=0;
         if (whoseTurn == 1) {
             whoseTurn++;
         } else if (whoseTurn == 2) {
@@ -74,15 +83,14 @@ function updateTimer() {
 
 function updateQuestion() {
 
-const currentQuestion = cardData[currentCardIndex];
-question.innerHTML = currentQuestion.phrase;
-answer1.innerHTML = currentQuestion.answers[0].blank;
-answer2.innerHTML = currentQuestion.answers[1].blank;
-answer3.innerHTML = currentQuestion.answers[2].blank;
-answer4.innerHTML = currentQuestion.answers[3].blank;
-answer5.innerHTML = currentQuestion.answers[4].blank;
-answer6.innerHTML = currentQuestion.answers[5].blank;
-answer7.innerHTML = currentQuestion.answers[6].blank;
+    question.innerHTML = currentQuestion.phrase;
+    answer1.innerHTML = currentQuestion.answers[0].blank;
+    answer2.innerHTML = currentQuestion.answers[1].blank;
+    answer3.innerHTML = currentQuestion.answers[2].blank;
+    answer4.innerHTML = currentQuestion.answers[3].blank;
+    answer5.innerHTML = currentQuestion.answers[4].blank;
+    answer6.innerHTML = currentQuestion.answers[5].blank;
+    answer7.innerHTML = currentQuestion.answers[6].blank;
 
 
 }
@@ -100,4 +108,43 @@ function clearCard() {
 }
 
 
+function answer1Correct() {
+    answer1.innerHTML = currentQuestion.answers[0].answer;
+correctAnswers++;
+    console.log("questions one correct");
+}
+
+function answer2Correct() {
+    answer2.innerHTML = currentQuestion.answers[1].answer;
+correctAnswers++;
+}
+function answer3Correct() {
+    answer3.innerHTML = currentQuestion.answers[2].answer;
+correctAnswers++;
+}
+function answer4Correct() {
+    answer4.innerHTML = currentQuestion.answers[3].answer;
+correctAnswers++;
+}
+function answer5Correct() {
+    answer5.innerHTML = currentQuestion.answers[4].answer;
+correctAnswers++;
+}
+function answer6Correct() {
+    answer6.innerHTML = currentQuestion.answers[5].answer;
+correctAnswers++;
+}
+function answer7Correct() {
+    answer7.innerHTML = currentQuestion.answers[6].answer;
+correctAnswers++;
+}
+
+
 startBtn.addEventListener('click', startTimer);
+answer1.addEventListener('click', answer1Correct);
+answer2.addEventListener('click', answer2Correct);
+answer3.addEventListener('click', answer3Correct);
+answer4.addEventListener('click', answer4Correct);
+answer5.addEventListener('click', answer5Correct);
+answer6.addEventListener('click', answer6Correct);
+answer7.addEventListener('click', answer7Correct);
