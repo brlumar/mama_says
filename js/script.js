@@ -40,7 +40,7 @@ function answerIn() {
 
     for (let i = 0; i < 7; i++) {
         console.log('answers are :', currentQuestion.answers[i].answer);
-        if (answer === currentQuestion.answers[i].answer) {
+        if (answer.toLowerCase() === currentQuestion.answers[i].answer) {
             console.log("it's correct! at index: ", i);
             if (i == 0) {
                 answer1Correct();
