@@ -7,6 +7,10 @@ const answer5 = document.getElementById('answer5');//variable that gives access 
 const answer6 = document.getElementById('answer6');//variable that gives access to the first answer in the DOM
 const answer7 = document.getElementById('answer7');//variable that gives access to the first answer in the DOM
 
+const autoplayBtn = document.getElementById('autoplayBtn');
+const hostBtn = document.getElementById('hostBtn');
+
+
 
 
 const startBtn = document.getElementById('start-btn'); //points to the button that starts the game
@@ -22,9 +26,21 @@ let index = -1;
 let currentQuestion = cardData[index];
 let correctAnswers = 0;
 
+let autoplay = true;
 
 
+function hostMode() {
+    console.log('host mode active');
+    autoplay = false;
+    console.log('autoplay is :', autoplay);
+}
 
+function autoplayMode() {
+    console.log('autoplay mode active');
+    autoplay = true;
+    console.log('autoplay is :', autoplay);
+
+}
 
 function startTimer() {
 
@@ -69,7 +85,7 @@ function updateTimer() {
     if (time <= 0 || correctAnswers == 7) {
         clearInterval(timerInterval);
         correctAnswers = 0;
-        time=0;
+        time = 0;
         if (whoseTurn == 1) {
             whoseTurn++;
         } else if (whoseTurn == 2) {
@@ -110,33 +126,33 @@ function clearCard() {
 
 function answer1Correct() {
     answer1.innerHTML = currentQuestion.answers[0].answer;
-correctAnswers++;
+    correctAnswers++;
     console.log("questions one correct");
 }
 
 function answer2Correct() {
     answer2.innerHTML = currentQuestion.answers[1].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 function answer3Correct() {
     answer3.innerHTML = currentQuestion.answers[2].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 function answer4Correct() {
     answer4.innerHTML = currentQuestion.answers[3].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 function answer5Correct() {
     answer5.innerHTML = currentQuestion.answers[4].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 function answer6Correct() {
     answer6.innerHTML = currentQuestion.answers[5].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 function answer7Correct() {
     answer7.innerHTML = currentQuestion.answers[6].answer;
-correctAnswers++;
+    correctAnswers++;
 }
 
 
@@ -148,3 +164,6 @@ answer4.addEventListener('click', answer4Correct);
 answer5.addEventListener('click', answer5Correct);
 answer6.addEventListener('click', answer6Correct);
 answer7.addEventListener('click', answer7Correct);
+
+hostBtn.addEventListener('click', hostMode);
+autoplayBtn.addEventListener('click', autoplayMode)
