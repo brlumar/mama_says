@@ -29,23 +29,23 @@
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                 <label class="btn btn-light" for="btnradio1" id="autoplayBtn">AutoPlay</label>
-              
+
                 <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                 <label class="btn btn-light" for="btnradio2" id="hostBtn">Host Mode</label>
-              
-               
-              </div>
+
+
+            </div>
             <!-- nave bar links -->
             <div class="collape navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" id="howToBtn" href="#howTo">How To Play</a>
                     </li>
-                    
+
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#contacts">High Scores</a>
                     </li> -->
-                    
+
                     <li class="nav-item ms-2  d-md-inline">
                         <a class="btn btn-secondary" id="start-btn" href="#start">Start</a>
                     </li>
@@ -64,14 +64,15 @@
             <img src="images/Wooden-Board-Toy-Bear-Backdrop-for-Photography-Photo-Background-Baby-Shower-Decorations-Child-s-Birthday-Party.jpg"
                 class="card-img" alt="...">
             <div class="card-img-overlay">
-                <div class="card-title  text-bg-light text-center p-3 card-title" id="question">Mama's always think their babies have
+                <div class="card-title  text-bg-light text-center p-3 card-title" id="question">Mama's always think
+                    their babies have
                     the cutest
                     ______.</div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-4 fs-1" id="answer1">b____</div>
                         <div class="col-md-4 ms-auto">
-                            <div class="col-sm-8 fs-1"id="answer2">e___</div>
+                            <div class="col-sm-8 fs-1" id="answer2">e___</div>
                         </div>
                     </div>
                     <div class="row">
@@ -95,9 +96,20 @@
                         <!-- <h4>Timer: </h4> -->
                         <div class="display-1" id="time">0</div>
                         <!-- <a class="btn btn-secondary shadow" id="start-btn" href="#start">Start</a> -->
-    
+
                     </div>
                 </div>
+
+                <form>
+                    <div class="mb-3">
+                        <label for="answerInput" class="form-label">Type your answers below:</label>
+                        <input type="text" class="form-control" id="answerInput">
+                    </div>
+                    <button type="submit" class="btn btn-secondary" id="submitBtn">Submit</button>
+                </form>
+
+
+
                 <button class="btn btn-light shadow fixed-bottom" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Scores</button>
 
@@ -106,7 +118,8 @@
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasBottomLabel">Score Board</h5>
                         <div class=".container row">
-                            <div class="card shadow p-1 mb-5 bg-body-tertiary rounded text-center" style="width: 18rem;">
+                            <div class="card shadow p-1 mb-5 bg-body-tertiary rounded text-center"
+                                style="width: 18rem;">
                                 <h3 class="display-5">Team 1</h3>
                                 <!-- <img src="Images/Team !.png" class="card-img-top team-label" alt="team one score image"> -->
                                 <div class="team card-body">
@@ -114,8 +127,9 @@
                                     <h4 class="team-one-score display-3 card-title">0</h4>
                                 </div>
                             </div>
-        
-                            <div class="team card shadow p-3 mb-5 bg-body-tertiary rounded text-center" style="width: 18rem;">
+
+                            <div class="team card shadow p-3 mb-5 bg-body-tertiary rounded text-center"
+                                style="width: 18rem;">
                                 <h3 class="display-5">Team 2</h3>
                                 <!-- <img src="Images/Team ! (1).png" class="card-img-top team-label" alt="team two score image"> -->
                                 <div class="team card-body">

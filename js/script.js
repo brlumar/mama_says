@@ -10,7 +10,10 @@ const answer7 = document.getElementById('answer7');//variable that gives access 
 const autoplayBtn = document.getElementById('autoplayBtn');
 const hostBtn = document.getElementById('hostBtn');
 
+const answerInput = document.getElementById('answerInput'); //points to the answer input in the DOM
+const submitBtn = document.getElementById('submitBtn');
 
+let answer = ''; //varible to hold the answer typed in so if can be check to see if it matches any of the answers. 
 
 
 const startBtn = document.getElementById('start-btn'); //points to the button that starts the game
@@ -28,18 +31,68 @@ let correctAnswers = 0;
 
 let autoplay = true;
 
+function answerIn() {
 
-function hostMode() {
-    console.log('host mode active');
-    autoplay = false;
-    console.log('autoplay is :', autoplay);
+    answer = answerInput.value;
+    console.log('input submitted: ', answer);
+    // checkAnswer();
+    // currentQuestion = cardData[index];
+
+    for (let i = 0; i < 7; i++) {
+        console.log('answers are :', currentQuestion.answers[i].answer);
+        if (answer === currentQuestion.answers[i].answer) {
+            console.log("it's correct! at index: ", i);
+            if (i == 0) {
+                answer1Correct();
+
+            } else if (i == 1) {
+                answer2Correct();
+            } else if (i == 2) {
+                answer3Correct();
+            } else if (i == 3) {
+                answer4Correct();
+            } else if (i == 4) {
+                answer5Correct();
+            } else if (i == 5) {
+                answer6Correct();
+            } else if (i == 6) {
+                answer7Correct();
+            }
+
+        }
+        else {
+            console.log('not found');
+        }
+    }
 }
+
+
+
+function checkAnswer() {
+    currentQuestion = cardData[index];
+    for (let i = 0; i < 7; i++) {
+        if (answer == currentQuestion.answer[i]) {
+            console.log("it's correct! at index: ", i);
+        }
+        else {
+            console.log('not found');
+        }
+
+    }
+
+}
+
 
 function autoplayMode() {
     console.log('autoplay mode active');
     autoplay = true;
     console.log('autoplay is :', autoplay);
 
+}
+function hostMode() {
+    autoplay = false;
+
+    console.log('autoplay is :', autoplay);
 }
 
 function startTimer() {
@@ -166,4 +219,7 @@ answer6.addEventListener('click', answer6Correct);
 answer7.addEventListener('click', answer7Correct);
 
 hostBtn.addEventListener('click', hostMode);
-autoplayBtn.addEventListener('click', autoplayMode)
+autoplayBtn.addEventListener('click', autoplayMode);
+
+
+submitBtn.addEventListener('click', answerIn);
