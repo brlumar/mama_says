@@ -48,7 +48,7 @@ const cardData = [
                 answer: 'clothes'
             }, {
                 blank: 'n___',
-                answer: 'noses'
+                answer: 'nose'
             }, {
                 blank: 'n_____',
                 answer: 'nursery'

@@ -6,6 +6,7 @@ const answer4 = document.getElementById('answer4');//variable that gives access 
 const answer5 = document.getElementById('answer5');//variable that gives access to the first answer in the DOM
 const answer6 = document.getElementById('answer6');//variable that gives access to the first answer in the DOM
 const answer7 = document.getElementById('answer7');//variable that gives access to the first answer in the DOM
+const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasWithBothOptions')); //variabel that give access to the offcanvas that holds the scores
 
 const autoplayBtn = document.getElementById('autoplayBtn');
 const hostBtn = document.getElementById('hostBtn');
@@ -34,6 +35,7 @@ let autoplay = true;
 function answerIn() {
 
     answer = answerInput.value;
+
     console.log('input submitted: ', answer);
     // checkAnswer();
     // currentQuestion = cardData[index];
@@ -64,6 +66,7 @@ function answerIn() {
             console.log('not found');
         }
     }
+    answerInput.value = '';
 }
 
 
@@ -96,7 +99,7 @@ function hostMode() {
 }
 
 function startTimer() {
-
+    correctAnswers = 0;
     if (whoseTurn == 1) {
         if (time == 0) {
             index++;
@@ -139,6 +142,7 @@ function updateTimer() {
         clearInterval(timerInterval);
         correctAnswers = 0;
         time = 0;
+        offcanvas.show();
         if (whoseTurn == 1) {
             whoseTurn++;
         } else if (whoseTurn == 2) {
