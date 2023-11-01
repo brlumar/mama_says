@@ -14,11 +14,19 @@ const hostBtn = document.getElementById('hostBtn');
 const answerInput = document.getElementById('answerInput'); //points to the answer input in the DOM
 const submitBtn = document.getElementById('submitBtn');
 
+const audioCorrect = document.getElementById('correctAudio');
+const audioIncorrect = document.getElementById('incorrectAudio');
+
+
 let answer = ''; //varible to hold the answer typed in so if can be check to see if it matches any of the answers. 
 
 
 const startBtn = document.getElementById('start-btn'); //points to the button that starts the game
 const timeElement = document.getElementById('time'); //variable that gives access to the clock in the DOM 
+
+const teamOneScoreEl = document.getElementById('teamOneScore');
+const teamTwoScoreEl = document.getElementById('teamTwoScore');
+
 
 let time = 0; //seconds allowed per turn
 let timerInterval; //variable for the clock interval
@@ -26,11 +34,16 @@ let whoseTurn = 1;
 
 let index = -1;
 
+let teamOneScore = 0;
+let teamTwoScore = 0;
+
 // let currentCardIndex = Math.floor(Math.random() * cardData.length); //index that indicates which card is currently being displayed
 let currentQuestion = cardData[index];
 let correctAnswers = 0;
 
 let autoplay = true;
+
+let gotOne = false;//variable that lets me know if the answer was correct. reset after each item is entered. 
 
 function answerIn() {
 
@@ -46,29 +59,65 @@ function answerIn() {
             console.log("it's correct! at index: ", i);
             if (i == 0) {
                 answer1Correct();
-
+                gotOne = true;
             } else if (i == 1) {
                 answer2Correct();
+                gotOne = true;
+
             } else if (i == 2) {
                 answer3Correct();
+                gotOne = true;
+
             } else if (i == 3) {
                 answer4Correct();
+                gotOne = true;
+
             } else if (i == 4) {
                 answer5Correct();
+                gotOne = true;
+
             } else if (i == 5) {
                 answer6Correct();
+                gotOne = true;
+
             } else if (i == 6) {
                 answer7Correct();
-            }
+                gotOne = true;
 
-        }
-        else {
-            console.log('not found');
+            } else {
+                console.log('not found');
+
+
+            }
         }
     }
+    if (gotOne == true) {
+        playCorrect();
+        writeScore();
+
+    } else {
+        playIncorrect();
+    }
+    gotOne = false;
     answerInput.value = '';
+
 }
 
+
+function writeScore() {
+    if (whoseTurn == 1) {
+        teamOneScore++;
+        teamOneScoreEl.innerText = teamOneScore;
+        console.log("It's team ", whoseTurn, " turn in writeScore func.");
+        playCorrect();
+    } else {
+        teamTwoScore++;
+        teamTwoScoreEl.innerText = teamTwoScore;
+        console.log("It's team ", whoseTurn, " turn in writeScore func.");
+        playCorrect();
+
+    }
+}
 
 
 function checkAnswer() {
@@ -190,6 +239,7 @@ function answer1Correct() {
 function answer2Correct() {
     answer2.innerHTML = currentQuestion.answers[1].answer;
     correctAnswers++;
+
 }
 function answer3Correct() {
     answer3.innerHTML = currentQuestion.answers[2].answer;
@@ -212,6 +262,18 @@ function answer7Correct() {
     correctAnswers++;
 }
 
+//Audio
+function playCorrect() {
+    audioCorrect.play();
+}
+
+function playIncorrect() {
+    audioIncorrect.play();
+}
+
+
+
+//Even Listeners
 
 startBtn.addEventListener('click', startTimer);
 answer1.addEventListener('click', answer1Correct);
